@@ -221,19 +221,14 @@ public class AddressBook {
      */
 
     private static void showWelcomeMessage() {
-        ArrayList<String> messages = new ArrayList<String>();
-        messages.add(DIVIDER);
-        messages.add(DIVIDER);
-        messages.add(VERSION);
-        messages.add(MESSAGE_WELCOME);
-        messages.add(DIVIDER);
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(DIVIDER, DIVIDER, VERSION, MESSAGE_WELCOME, DIVIDER));
         showToUserMultiple(messages);
     }
 
     private static void showResultToUser(String result) {
-        ArrayList<String> messages = new ArrayList<String>();
-        messages.add(result);
-        messages.add(DIVIDER);
+        ArrayList<String> messages = new ArrayList<String>(
+                Arrays.asList(result, DIVIDER));
         showToUserMultiple(messages);
     }
 
@@ -296,10 +291,8 @@ public class AddressBook {
      * Displays the goodbye message and exits the runtime.
      */
     private static void exitProgram() {
-        ArrayList<String> messages = new ArrayList<>();
-        messages.add(MESSAGE_GOODBYE);
-        messages.add(DIVIDER);
-        messages.add(DIVIDER);
+        ArrayList<String> messages = new ArrayList<>(
+                Arrays.asList(MESSAGE_GOODBYE, DIVIDER, DIVIDER));
         showToUserMultiple(messages);
         System.exit(0);
     }

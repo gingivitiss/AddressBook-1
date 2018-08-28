@@ -336,13 +336,27 @@ public class AddressBook {
 
     /**
      * Returns true if file path has a valid file name.
-     * File name is valid if it has an extension and no reserved characters.
-     * Reserved characters are OS-dependent.
      * If a file already exists, it must be a regular file.
      */
     private static boolean hasValidFileName(Path filePath) {
-        return filePath.getFileName().toString().lastIndexOf('.') > 0
-                && (!Files.exists(filePath) || Files.isRegularFile(filePath));
+        return pathHasValidFileName(filePath)
+                && isRegularFile(filePath);
+    }
+
+    /**
+     * Returns true if file exists and is a regular file.
+     */
+    private static boolean isRegularFile(Path filePath) {
+        return !Files.exists(filePath) || Files.isRegularFile(filePath);
+    }
+
+    /**
+     * Returns true if file path has a valid file name.
+     * File name is valid if it has an extension and no reserved characters.
+     * Reserved characters are OS-dependent.
+     */
+    private static boolean pathHasValidFileName(Path filePath) {
+        return filePath.getFileName().toString().lastIndexOf('.') > 0;
     }
 
     /**

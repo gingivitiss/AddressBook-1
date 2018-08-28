@@ -278,13 +278,15 @@ public class AddressBook {
      */
     private static void setupGivenFileForStorage(String filePath) {
 
-        if (!isValidFilePath(filePath)) {
+        if (isValidFilePath(filePath)) {
+            storageFilePath = filePath;
+            createFileIfMissing(filePath);
+
+        } else {
             showToUser(String.format(MESSAGE_INVALID_FILE, filePath));
             exitProgram();
         }
 
-        storageFilePath = filePath;
-        createFileIfMissing(filePath);
     }
 
     /**

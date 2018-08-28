@@ -614,11 +614,11 @@ public class AddressBook {
     /**
      * Shows a message to the user
      */
-    private static void showToUser(String... message) {
-        for (String m : message) {
-            System.out.println(LINE_PREFIX + m);
-        }
+    private static void showToUser(String message) {
+        System.out.println(LINE_PREFIX + m);
     }
+
+    //private static void showToUserDivided(String )
 
     /**
      * Shows the list of persons to the user.

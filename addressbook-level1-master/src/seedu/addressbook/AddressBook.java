@@ -14,14 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /*
  * NOTE : =============================================================
@@ -135,15 +128,16 @@ public class AddressBook {
 
     private static final String DIVIDER = "===================================================";
 
-
-    /* We use a String array to store details of a single person.
-     * The constants given below are the indexes for the different data elements of a person
-     * used by the internal String[] storage format.
-     * For example, a person's name is stored as the 0th element in the array.
-     */
     private static final int PERSON_DATA_INDEX_NAME = 0;
     private static final int PERSON_DATA_INDEX_PHONE = 1;
     private static final int PERSON_DATA_INDEX_EMAIL = 2;
+
+    /* We use a HashMap to store details of a person.
+     * Each of the strings below are the data elements of a person.
+     */
+    private static final String PERSON_DATA_NAME = "name";
+    private static final String PERSON_DATA_PHONE = "phone";
+    private static final String PERSON_DATA_EMAIL = "email";
 
     /**
      * The number of data elements for a single person.
@@ -871,6 +865,7 @@ public class AddressBook {
      * @return constructed person
      */
     private static String[] makePersonFromData(String name, String phone, String email) {
+        HashMap<>
         final String[] person = new String[PERSON_DATA_COUNT];
         person[PERSON_DATA_INDEX_NAME] = name;
         person[PERSON_DATA_INDEX_PHONE] = phone;

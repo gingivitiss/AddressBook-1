@@ -221,11 +221,20 @@ public class AddressBook {
      */
 
     private static void showWelcomeMessage() {
-        showToUser(DIVIDER, DIVIDER, VERSION, MESSAGE_WELCOME, DIVIDER);
+        ArrayList<String> messages = new ArrayList<String>();
+        messages.add(DIVIDER);
+        messages.add(DIVIDER);
+        messages.add(VERSION);
+        messages.add(MESSAGE_WELCOME);
+        messages.add(DIVIDER);
+        showToUserMultiple(messages);
     }
 
     private static void showResultToUser(String result) {
-        showToUser(result, DIVIDER);
+        ArrayList<String> messages = new ArrayList<String>();
+        messages.add(result);
+        messages.add(DIVIDER);
+        showToUserMultiple(messages);
     }
 
     /*
@@ -287,7 +296,11 @@ public class AddressBook {
      * Displays the goodbye message and exits the runtime.
      */
     private static void exitProgram() {
-        showToUser(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
+        ArrayList<String> messages = new ArrayList<>();
+        messages.add(MESSAGE_GOODBYE);
+        messages.add(DIVIDER);
+        messages.add(DIVIDER);
+        showToUserMultiple(messages);
         System.exit(0);
     }
 
@@ -614,11 +627,15 @@ public class AddressBook {
     /**
      * Shows a message to the user
      */
-    private static void showToUser(String message) {
-        System.out.println(LINE_PREFIX + m);
+    private static void showToUserMultiple(ArrayList<String> message) {
+        for(String m: message) {
+            System.out.println(LINE_PREFIX + m);
+        }
     }
 
-    //private static void showToUserDivided(String )
+    private static void showToUser(String message) {
+        System.out.println(LINE_PREFIX + message);
+    }
 
     /**
      * Shows the list of persons to the user.
